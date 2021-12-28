@@ -1,13 +1,16 @@
 {
     "name": "excommunicado/it-enterprise-helpers",
+    "type": "library",
+    "license": "MIT",
     "authors": [
         {
-            "name": "aleksandrstarikov",
-            "email": "starik0v_dev@icloud.com"
+            "name": "Aleksandr Starikov",
+            "email": "starik0v_dev@icloud.com",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": ">=7.2.0"
+        "php": "^7.1.3 | ^8.0"
     },
     "require-dev": {},
     "minimum-stability": "dev",
