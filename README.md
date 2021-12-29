@@ -23,11 +23,11 @@ composer require clausnz/php-helpers
 #### Обёртка над функцией print_r - p()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Utils;
 
 $arr = ['one', 'two', 'bar' => ['aaa' => 'str_aaa', 'bbb' => 'str_bbb']];
 
-Helpers::p($arr);
+Utils::p($arr);
 
 Результат:
 <pre>
@@ -47,23 +47,23 @@ Array
 #### Записывает массив в файл - l()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Arr;
 
 $arr = ['one', 'two', 'bar' => ['aaa' => 'str_aaa', 'bbb' => 'str_bbb']];
 
-Helpers::l($arr);
+Arr::l($arr);
 ```
 
 #### Склонение существительных после числительных - numWord()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Utils;
 
-Helpers::numWord(5, ['товар', 'товара', 'товаров']);
+Utils::numWord(5, ['товар', 'товара', 'товаров']);
 
 Результат: 5 товаров
 
-Helpers::numWord(5, ['товар', 'товара', 'товаров'], false);
+Utils::numWord(5, ['товар', 'товара', 'товаров'], false);
 
 Результат: товаров
 ```
@@ -71,9 +71,9 @@ Helpers::numWord(5, ['товар', 'товара', 'товаров'], false);
 #### Перевод bytes to KB/MB/GB/TB - numWord() 
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Utils;
 
-Helpers::formatSize(5, ['товар', 'товара', 'товаров']);
+Utils::formatSize(1024);
 
 Результат: 1.00 KB
 ```
@@ -81,10 +81,10 @@ Helpers::formatSize(5, ['товар', 'товара', 'товаров']);
 #### Генератор html ссылки - anchor()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Utils;
 
 $extras = ['#test_id','.test_class','_blank'];
-Helpers::anchor('https://google.com', 'Проверка связи', 'Это Title', $extras);
+Utils::anchor('https://google.com', 'Проверка связи', 'Это Title', $extras);
 
 Результат: <a href="https://google.com" title="Это Title" id="test_id" class="test_class" target="_blank">Проверка связи</a>
 ```
@@ -92,10 +92,10 @@ Helpers::anchor('https://google.com', 'Проверка связи', 'Это Tit
 #### Проверка массива на ассоциативность - isAssoc()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Arr;
 
 $arr = ['one', 'two', 'bar' => ['aaa' => 'str_aaa', 'bbb' => 'str_bbb']];
-Helpers::isAssoc($arr);
+Arr::isAssoc($arr);
 
 Результат: 1
 ```
@@ -103,10 +103,10 @@ Helpers::isAssoc($arr);
 #### Конвертирует массив в объект - toObject()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Arr;
 
 $arr = ['one', 'two', 'bar' => ['aaa' => 'str_aaa', 'bbb' => 'str_bbb']];
-Helpers::toObject($arr);
+Arr::toObject($arr);
 
 Результат:
 stdClass Object
@@ -126,10 +126,10 @@ stdClass Object
 #### Возвращает первый элемент массива - arrayFirst()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Arr;
 
 $arr = ['one', 'two', 'bar' => ['aaa' => 'str_aaa', 'bbb' => 'str_bbb']];
-Helpers::arrayFirst($arr);
+Arr::arrayFirst($arr);
 
 Результат: one
 ```
@@ -137,10 +137,10 @@ Helpers::arrayFirst($arr);
 #### Возвращает последний элемент массива - arrayLast()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Arr;
 
 $arr = ['one', 'two', 'bar' => ['aaa' => 'str_aaa', 'bbb' => 'str_bbb']];
-Helpers::arrayLast($arr);
+Arr::arrayLast($arr);
 
 Результат:
 Array
@@ -153,10 +153,10 @@ Array
 #### Получает значение в массиве по точечной нотации для ключей - arrayGet()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Arr;
 
 $arr = ['one', 'two', 'bar' => ['aaa' => 'str_aaa', 'bbb' => 'str_bbb']];
-Helpers::arrayGet('bar.aaa', $arr);
+Arr::arrayGet('bar.aaa', $arr);
 
 Результат: str_aaa
 ```
@@ -164,10 +164,10 @@ Helpers::arrayGet('bar.aaa', $arr);
 #### Устанавливает значение в массиве с использованием точечной записи - arraySet()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Arr;
 
 $arr = ['one', 'two', 'bar' => ['aaa' => 'str_aaa', 'bbb' => 'str_bbb']];
-Helpers::arraySet('bar.zzz', 'added from func', $arr)
+Arr::arraySet('bar.zzz', 'added from func', $arr)
 
 Результат:
 Array
@@ -187,7 +187,7 @@ Array
 #### Вставляет одну или несколько строк в другую строку в определенной позиции - strInsert()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Str;
 
 $keyValue = [
     ':color' => 'brown',
@@ -196,7 +196,7 @@ $keyValue = [
 
 $string = 'The quick :color fox jumps over the lazy :animal.';
 
-Helpers::strInsert($keyValue, $string);
+Str::strInsert($keyValue, $string);
 
 Результат: The quick brown fox jumps over the lazy dog.
 ```
@@ -204,11 +204,11 @@ Helpers::strInsert($keyValue, $string);
 #### Ограничение строки по количеству слов - limitWords()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Str;
 
 $string = 'The quick brown fox jumps over the lazy dog';
 
-Helpers::limitWords($string, 3);
+Str::limitWords($string, 3);
 
 Результат: The quick brown...
 ```
@@ -216,11 +216,11 @@ Helpers::limitWords($string, 3);
 #### Ограничение строки по количеству символов - limit()
 ```php
 <?php
-use Mellanyx\Helpers\Helpers;
+use Mellanyx\Helpers\Str;
 
 $string = 'The quick brown fox jumps over the lazy dog';
 
-Helpers::limit($string, 15);
+Str::limit($string, 15);
 
 Результат: The quick brown...
 ```
