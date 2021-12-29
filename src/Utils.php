@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mellanyx\Helpers;
 
 class Utils
 {
-
     /**
      * Обёртка над функцией print_r
      *
-     * @param      $array
+     * @param string | array | int | bool | object $array
      * @param bool $bReturn
      *
      * @return int|string
@@ -27,20 +28,21 @@ class Utils
     /**
      * Склонение существительных после числительных.
      *
-     * @param      $value
-     * @param      $words
+     * @param int  $value
+     * @param array $words
      * @param bool $show
      *
      * @return string
      */
-    public static function numWord($value, $words, bool $show = true): string
+    public static function numWord(int $value, array $words, bool $show = true): string
     {
         $num = $value % 100;
         if ($num > 19) {
             $num = $num % 10;
         }
 
-        $out = ($show) ? $value . ' ' : '';
+        $out = $show ? $value . ' ' : '';
+
         switch ($num) {
             case 1:
                 $out .= $words[0];
@@ -61,7 +63,7 @@ class Utils
     /**
      * Перевод bytes to KB/MB/GB/TB
      *
-     * @param $bytes
+     * @param int $bytes
      *
      * @return string
      */
@@ -85,14 +87,14 @@ class Utils
     /**
      * Генератор html ссылки
      *
-     * @param $link
-     * @param $text
-     * @param $title
-     * @param $extras
+     * @param string $link
+     * @param string $text
+     * @param string $title
+     * @param array $extras
      *
      * @return string
      */
-    public static function anchor($link, $text, $title, $extras)
+    public static function anchor(string $link, string $text, string $title, array $extras)
     {
         $data = '<a href="' . $link . '"';
 
@@ -102,17 +104,8 @@ class Utils
             $data .= ' title="' . $text . '"';
         }
 
-        if (is_array($extras))//2
-        {
-            foreach ($extras as $rule)//3
-            {
-                $data .= self::parseExtras($rule);//4
-            }
-        }
-
-        if (is_string($extras))//5
-        {
-            $data .= self::parseExtras($extras);//6
+        foreach ($extras as $rule) {
+            $data .= self::parseExtras($rule);
         }
 
         $data .= '>';
@@ -126,11 +119,11 @@ class Utils
     /**
      * Вспомогательный метод для генератора ссылок
      *
-     * @param $rule
+     * @param string $rule
      *
-     * @return string|void
+     * @return string
      */
-    public static function parseExtras($rule)
+    public static function parseExtras(string $rule)
     {
         if ($rule[0] == "#") {
             $id = substr($rule, 1, strlen($rule));
@@ -145,6 +138,7 @@ class Utils
         if ($rule[0] == "_") {
             return ' target="' . $rule . '"';
         }
-    }
 
+        return '';
+    }
 }

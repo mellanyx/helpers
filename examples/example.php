@@ -14,14 +14,14 @@ Utils::p($arr);
 //Arr::l($arr);
 
 
-Utils::p(Utils::numWord(5, ['товар', 'товара', 'товаров']));
+Utils::p(Utils::numWord(11, ['товар', 'товара', 'товаров']));
 
 
 Utils::p(Utils::numWord(5, ['товар', 'товара', 'товаров'], false));
 
 Utils::p(Utils::formatSize(1024));
 
-$extras = ['#test_id','.test_class','_blank'];
+$extras = ['#test_id', '.test_class', '_blank'];
 Utils::p(Utils::anchor('https://google.com', 'Проверка связи', 'Это Title', $extras));
 
 Utils::p(Arr::isAssoc($arr));
@@ -43,8 +43,8 @@ Utils::p($arr);
 
 
 $keyValue = [
-    ':color' => 'brown',
-    ':animal' => 'dog'
+    ':color'  => 'brown',
+    ':animal' => 'dog',
 ];
 $string = 'The quick :color fox jumps over the lazy :animal.';
 Utils::p($string);

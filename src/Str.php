@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mellanyx\Helpers;
 
 use Mellanyx\Helpers\Arr;
 
 class Str
 {
-
     /**
      * Вставляет одну или несколько строк в другую строку в определенной
      * позиции.
@@ -23,13 +24,13 @@ class Str
      *
      * // The quick brown fox jumps over the lazy dog.
      *
-     * @param array  $keyValue
+     * @param array $keyValue
      *
      * @param string $string
      *
      * @return string
      */
-    public static function strInsert($keyValue, string $string): string
+    public static function strInsert(array $keyValue, string $string): string
     {
         if (Arr::isAssoc($keyValue)) {
             foreach ($keyValue as $search => $replace) {
@@ -53,20 +54,20 @@ class Str
      *
      * @param string $string
      *
-     * @param int    $limit
+     * @param int $limit
      *
      * @param string $end
      *
      * @return string
      */
     public static function limitWords(
-      string $string,
-      int $limit = 10,
-      string $end = '...'
+        string $string,
+        int $limit = 10,
+        string $end = '...'
     ) {
         $arrayWords = explode(' ', $string);
 
-        if (sizeof($arrayWords) <= $limit) {
+        if (count($arrayWords) <= $limit) {
             return $string;
         }
 
@@ -86,16 +87,16 @@ class Str
      *
      * @param string $string
      *
-     * @param int    $limit
+     * @param int $limit
      *
      * @param string $end
      *
      * @return string
      */
     public static function limit(
-      string $string,
-      int $limit = 100,
-      string $end = '...'
+        string $string,
+        int $limit = 100,
+        string $end = '...'
     ) {
         if (mb_strwidth($string, 'UTF-8') <= $limit) {
             return $string;
@@ -103,5 +104,4 @@ class Str
 
         return rtrim(mb_strimwidth($string, 0, $limit, '', 'UTF-8')) . $end;
     }
-
 }

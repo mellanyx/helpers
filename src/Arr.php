@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mellanyx\Helpers;
 
 class Arr
 {
-
     /**
      * Запись массива в файл
      *
@@ -12,12 +13,15 @@ class Arr
      *
      * @return void
      */
-    public static function l($array)
+    public static function l(string $path, array $array)
     {
         $sResult = date('d.m.Y H:i:s') . "\n" . print_r($array, true) . "\n";
         $sResult .= "--------------------------\n";
-        file_put_contents($_SERVER['DOCUMENT_ROOT'] . "/l.log", $sResult,
-          FILE_APPEND);
+        file_put_contents(
+            $path . "/l.log",
+            $sResult,
+            FILE_APPEND
+        );
     }
 
     /**
@@ -115,7 +119,7 @@ class Arr
      */
     public static function arrayLast(array $array)
     {
-        return $array[array_keys($array)[sizeof($array) - 1]];
+        return $array[array_keys($array)[count($array) - 1]];
     }
 
     /**
@@ -136,28 +140,26 @@ class Arr
      *
      * @param string $key
      *
-     * @param array  $array
+     * @param array $array
      *
      * @return mixed
      */
     public static function arrayGet(string $key, array $array)
     {
-        if (is_string($key) && is_array($array)) {
-            $keys = explode('.', $key);
+        $keys = explode('.', $key);
 
-            while (sizeof($keys) >= 1) {
-                $k = array_shift($keys);
+        while (count($keys) >= 1) {
+            $k = array_shift($keys);
 
-                if (!isset($array[$k])) {
-                    return null;
-                }
-
-                if (sizeof($keys) === 0) {
-                    return $array[$k];
-                }
-
-                $array = &$array[$k];
+            if (! isset($array[$k])) {
+                return null;
             }
+
+            if (count($keys) === 0) {
+                return $array[$k];
+            }
+
+            $array = &$array[$k];
         }
 
         return null;
@@ -206,31 +208,30 @@ class Arr
      *
      * @param string $key
      *
-     * @param mixed  $value
+     * @param mixed $value
      *
-     * @param array  $array
+     * @param array $array
      *
      * @return bool
      */
     public static function arraySet(string $key, $value, array &$array)
     {
-        if (!empty($key)) {
-
+        if (! empty($key)) {
             $keys = explode('.', $key);
             $arrTmp = &$array;
 
-            while (sizeof($keys) >= 1) {
+            while (count($keys) >= 1) {
                 $k = array_shift($keys);
 
-                if (!is_array($arrTmp)) {
+                if (! is_array($arrTmp)) {
                     $arrTmp = [];
                 }
 
-                if (!isset($arrTmp[$k])) {
+                if (! isset($arrTmp[$k])) {
                     $arrTmp[$k] = [];
                 }
 
-                if (sizeof($keys) === 0) {
+                if (count($keys) === 0) {
                     $arrTmp[$k] = $value;
                     return true;
                 }
@@ -241,5 +242,4 @@ class Arr
 
         return false;
     }
-
 }
