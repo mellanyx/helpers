@@ -1,6 +1,6 @@
 <?php
 
-namespace Excommunicado\Helpers;
+namespace Mellanyx\Helpers;
 
 class Helpers
 {
@@ -40,7 +40,7 @@ class Helpers
     }
 
     /**
-     * Склонение существительных после числительных
+     * Склонение существительных после числительных.
      *
      * @param      $value
      * @param      $words
@@ -317,7 +317,7 @@ class Helpers
      *      ]
      * ];
      *
-     * array_set( 'baz.qux', 'bazqux', $array );
+     * arraySet( 'baz.qux', 'bazqux', $array );
      *
      * // (
      * //     [foo] => bar
@@ -336,7 +336,7 @@ class Helpers
      *      ]
      * ];
      *
-     * array_set( 'baz.foo', 'bar', $array );
+     * arraySet( 'baz.foo', 'bar', $array );
      *
      * // (
      * //     [foo] => bar
@@ -424,7 +424,7 @@ class Helpers
      *
      * $string = 'The quick brown fox jumps over the lazy dog';
      *
-     * str_limit_words( $string, 3 );
+     * limitWords( $string, 3 );
      *
      * // The quick brown...
      *
@@ -457,7 +457,7 @@ class Helpers
      *
      * $string = 'The quick brown fox jumps over the lazy dog';
      *
-     * str_limit( $string, 15 );
+     * limit( $string, 15 );
      *
      * // The quick brown...
      *
@@ -469,8 +469,11 @@ class Helpers
      *
      * @return string
      */
-    public static function limit(string $string, int $limit = 100, string $end = '...')
-    {
+    public static function limit(
+      string $string,
+      int $limit = 100,
+      string $end = '...'
+    ) {
         if (mb_strwidth($string, 'UTF-8') <= $limit) {
             return $string;
         }

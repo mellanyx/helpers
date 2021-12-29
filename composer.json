@@ -17,7 +17,7 @@
     "require-dev": {},
     "autoload": {
         "psr-4": {
-            "Excommunicado\\Helpers\\": "src/"
+            "Mellanyx\\Helpers\\": "src/"
         }
     },
     "repositories": [
