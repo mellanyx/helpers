@@ -230,3 +230,8 @@ Str::limit($string, 15);
 
 Результат: The quick brown...
 ```
+
+## License
+
+Данная `mellanyx/helpers` библиотека лицензирована для использования в рамках MIT License (MIT).  
+Пожалуйста прочитайте [LICENSE](https://github.com/mellanyx/helpers/blob/dev/LICENSE) для большей информации.
