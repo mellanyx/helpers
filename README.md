@@ -22,7 +22,7 @@
 
 #### Установка
 ```bash
-composer require clausnz/php-helpers
+composer require mellanyx/helpers
 ```
 
 
