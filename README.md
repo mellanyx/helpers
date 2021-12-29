@@ -9,12 +9,12 @@
 
 <div align="center">
 
-# useful php helper functions
+# Полезные вспомогательные функции для php разработчика
 
 </div>
 
 
-#### Installation
+#### Установка
 ```bash
 composer require clausnz/php-helpers
 ```
