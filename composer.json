@@ -33,7 +33,6 @@
         ],
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
-        "psalm": "psalm --show-info=true",
-        "test": "phpunit --colors=always"
+        "psalm": "psalm --show-info=true"
     }
 }

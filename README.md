@@ -11,6 +11,12 @@
 
 # Полезные вспомогательные функции для php разработчика
 
+[![PHP-CI](https://github.com/mellanyx/helpers/workflows/PHP-CI/badge.svg?branch=master)](https://github.com/mellanyx/helpers/actions)
+[![Source Code](https://img.shields.io/badge/source-mellanyx%2Fhelpers-blue)](https://github.com/mellanyx/helpers)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/mellanyx/helpers?label=stable)](https://github.com/mellanyx/helpers/releases)
+[![Packagist](https://img.shields.io/packagist/dt/mellanyx/helpers)](https://packagist.org/packages/mellanyx/helpers)
+
+
 </div>
 
 
