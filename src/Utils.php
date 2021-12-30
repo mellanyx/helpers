@@ -7,25 +7,6 @@ namespace Mellanyx\Helpers;
 class Utils
 {
     /**
-     * Обёртка над функцией print_r
-     *
-     * @param string | array | int | bool | object $array
-     * @param bool $bReturn
-     *
-     * @return int|string
-     */
-    public static function p($array, bool $bReturn = false)
-    {
-        $sResult = "<pre>" . print_r($array, true) . "</pre>\n";
-        if ($bReturn) {
-            return $sResult;
-        } else {
-            echo $sResult;
-            return 0;
-        }
-    }
-
-    /**
      * Склонение существительных после числительных.
      *
      * @param int  $value

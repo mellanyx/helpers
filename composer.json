@@ -24,7 +24,8 @@
     "autoload": {
         "psr-4": {
             "Mellanyx\\Helpers\\": "src/"
-        }
+        },
+        "files": ["src/fastFunctions.php"]
     },
     "scripts": {
         "check": [

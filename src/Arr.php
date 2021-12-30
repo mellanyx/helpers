@@ -7,24 +7,6 @@ namespace Mellanyx\Helpers;
 class Arr
 {
     /**
-     * Запись массива в файл
-     *
-     * @param $array
-     *
-     * @return void
-     */
-    public static function l(string $path, array $array)
-    {
-        $sResult = date('d.m.Y H:i:s') . "\n" . print_r($array, true) . "\n";
-        $sResult .= "--------------------------\n";
-        file_put_contents(
-            $path . "/l.log",
-            $sResult,
-            FILE_APPEND
-        );
-    }
-
-    /**
      * Определяет является ли массив ассоциативным или нет.
      *
      * #### Пример
