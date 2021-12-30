@@ -1,8 +1,8 @@
 <?php
 
-// Быстрый вызов функций без namespace //
-
 declare(strict_types=1);
+
+// Быстрый вызов функций без namespace //
 
 /**
  * Обёртка над функцией print_r
