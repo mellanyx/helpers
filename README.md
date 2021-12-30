@@ -29,11 +29,9 @@ composer require mellanyx/helpers
 #### Обёртка над функцией print_r - p()
 ```php
 <?php
-use Mellanyx\Helpers\Utils;
-
 $arr = ['one', 'two', 'bar' => ['aaa' => 'str_aaa', 'bbb' => 'str_bbb']];
 
-Utils::p($arr);
+p($arr);
 
 Результат:
 <pre>
@@ -53,11 +51,10 @@ Array
 #### Записывает массив в файл - l()
 ```php
 <?php
-use Mellanyx\Helpers\Arr;
 
 $arr = ['one', 'two', 'bar' => ['aaa' => 'str_aaa', 'bbb' => 'str_bbb']];
 
-Arr::l($arr);
+l($arr);
 ```
 
 #### Склонение существительных после числительных - numWord()
