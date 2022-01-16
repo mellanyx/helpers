@@ -49,3 +49,5 @@ $keyValue = [
 $string = 'The quick :color fox jumps over the lazy :animal.';
 p($string);
 p(Str::strInsert($keyValue, $string));
+
+//dd(array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43"));

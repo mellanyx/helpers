@@ -25,6 +25,31 @@
 composer require mellanyx/helpers
 ```
 
+<br>
+
+#### Вывод объектов и массивов в древовидном виде - dd()
+```php
+<?php
+dd(
+  [
+    "Peter" => [
+      "age" => 18,
+      "weight" => 73
+    ],
+    "Ben" => [
+      "age" => 15,
+      "weight" => 58
+    ],
+    "Alice" => [
+      "age" => 25,
+      "weight" => 75
+    ]
+  ]
+);
+
+Результат: см. скриншот ниже
+```
+![](examples/screenshots/dd.png)
 
 #### Обёртка над функцией print_r - p()
 ```php
