@@ -40,3 +40,45 @@ function l(string $path, array $array)
         FILE_APPEND
     );
 }
+
+/**
+ * Запись массива в файл
+ *
+ * @param array | object $in
+ *
+ * @param bool $opened
+ *
+ * @param int $margin
+ *
+ * @return void
+ */
+function dd($in, bool $opened = false, int $margin = 10): void
+{
+    if (! is_object($in) && ! is_array($in)) {
+        return;
+    }
+
+    foreach ($in as $key => $value) {
+        if (is_object($value) or is_array($value)) {
+            echo '<details style="margin-left:' . $margin . 'px; padding:5px;" ' . $opened . '>';
+            echo '<summary>';
+            echo is_object($value) ? $key . ' {' . count((array) $value) . '} (' . gettype($value) . ')' : $key . ' [' . count($value) . '] (' . gettype($value) . ')';
+            echo '</summary>';
+            dd($value, $opened, $margin + 10);
+            echo '</details>';
+        } else {
+            switch (gettype($value)) {
+                case 'string':
+                    $bgc = 'red';
+                    break;
+                case 'integer':
+                    $bgc = 'green';
+                    break;
+                default:
+                    $bgc = 'white';
+                    break;
+            }
+            echo '<div style="margin-left:' . $margin . 'px">' . $key . ' : <span style="color:' . $bgc . '">' . $value . '</span> (' . gettype($value) . ')</div>';
+        }
+    }
+}
