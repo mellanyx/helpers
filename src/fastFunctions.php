@@ -81,4 +81,6 @@ function dd($in, bool $opened = false, int $margin = 10): void
             echo '<div style="margin-left:' . $margin . 'px">' . $key . ' : <span style="color:' . $bgc . '">' . $value . '</span> (' . gettype($value) . ')</div>';
         }
     }
+
+    die();
 }
