@@ -52,7 +52,7 @@ function l(string $path, array $array)
  *
  * @return void
  */
-function dd($in, bool $opened = false, int $margin = 10): void
+function dump($in, bool $opened = false, int $margin = 10): void
 {
     if (! is_object($in) && ! is_array($in)) {
         return;
@@ -64,7 +64,7 @@ function dd($in, bool $opened = false, int $margin = 10): void
             echo '<summary>';
             echo is_object($value) ? $key . ' {' . count((array) $value) . '} (' . gettype($value) . ')' : $key . ' [' . count($value) . '] (' . gettype($value) . ')';
             echo '</summary>';
-            dd($value, $opened, $margin + 10);
+            dump($value, $opened, $margin + 10);
             echo '</details>';
         } else {
             switch (gettype($value)) {
@@ -81,6 +81,4 @@ function dd($in, bool $opened = false, int $margin = 10): void
             echo '<div style="margin-left:' . $margin . 'px">' . $key . ' : <span style="color:' . $bgc . '">' . $value . '</span> (' . gettype($value) . ')</div>';
         }
     }
-
-    exit();
 }
