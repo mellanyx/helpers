@@ -27,10 +27,10 @@ composer require mellanyx/helpers
 
 <br>
 
-#### Вывод объектов и массивов в древовидном виде - dd()
+#### Вывод объектов и массивов в древовидном виде - dump()
 ```php
 <?php
-dd(
+dump(
   [
     "Peter" => [
       "age" => 18,
