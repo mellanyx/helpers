@@ -49,7 +49,7 @@ dd(
 
 Результат: см. скриншот ниже
 ```
-![](examples/screenshots/dd.png)
+<img src="examples/screenshots/dd.png" width="300">
 
 #### Обёртка над функцией print_r - p()
 ```php
