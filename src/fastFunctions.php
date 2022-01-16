@@ -82,5 +82,5 @@ function dd($in, bool $opened = false, int $margin = 10): void
         }
     }
 
-    die();
+    exit();
 }
