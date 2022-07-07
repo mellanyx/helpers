@@ -9,7 +9,7 @@
 
 <div align="center">
 
-## Полезные вспомогательные функции для php разработчика
+## Вспомогательные функции для php разработчика
 
 [![PHP-CI](https://github.com/mellanyx/helpers/workflows/PHP-CI/badge.svg?branch=dev)](https://github.com/mellanyx/helpers/actions)
 [![Source Code](https://img.shields.io/badge/source-mellanyx%2Fhelpers-blue)](https://github.com/mellanyx/helpers)
